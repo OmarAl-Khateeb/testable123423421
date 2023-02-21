@@ -27,6 +27,11 @@ namespace API.Helpers
             CreateMap<ProjectDto, Project>();
             CreateMap<CommonQuestion, CommonQuestionDto>();
             CreateMap<CommonQuestionDto, CommonQuestion>();
+<<<<<<< HEAD
+=======
+            CreateMap<NewsDto, News>();
+            CreateMap<News, NewsDto>();
+>>>>>>> 53da8f9 (test)
                 
         }
     }

@@ -10,6 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddApplicationServices(builder.Configuration);
+<<<<<<< HEAD
+=======
+builder.Services.AddIdentityServices(builder.Configuration);
+>>>>>>> 53da8f9 (test)
 
 var app = builder.Build();
 
