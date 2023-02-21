@@ -29,6 +29,27 @@ namespace Infrastructure.Data
                 context.Products.AddRange(products);
             }
 
+            if (!context.Users.Any())
+            {
+                var usersData = File.ReadAllText("../Infrastructure/Data/SeedData/users.json");
+                var users = JsonSerializer.Deserialize<List<User>>(usersData);
+                context.Users.AddRange(users);
+            }
+
+            if (!context.Provinces.Any())
+            {
+                var provincesData = File.ReadAllText("../Infrastructure/Data/SeedData/provinces.json");
+                var provinces = JsonSerializer.Deserialize<List<Province>>(provincesData);
+                context.Provinces.AddRange(provinces);
+            }
+
+            if (!context.UserTypes.Any())
+            {
+                var userTypesData = File.ReadAllText("../Infrastructure/Data/SeedData/userTypes.json");
+                var userTypes = JsonSerializer.Deserialize<List<UserType>>(userTypesData);
+                context.UserTypes.AddRange(userTypes);
+            }
+
             if (context.ChangeTracker.HasChanges()) await context.SaveChangesAsync();
         }
     }

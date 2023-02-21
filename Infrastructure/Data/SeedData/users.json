@@ -1,0 +1,34 @@
+[
+  {
+    "Id": 1,
+    "UserName": "Boards",
+    "FullName": "Boards Jr",
+    "Email": "Boards@Jr",
+    "Password": "Boards1234",
+    "PhoneNumber": "1234",
+	"Gender": "Male",
+	"SubscriptionDate": "1956-07-22",
+	"UserTypeId": 1,
+	"IsActive": true,
+	"DateBirth": "1956-07-22",
+	"ProvinceId": 1,
+	"FullAddress": "Unknown",
+	"IsDelete": false
+  },
+  {
+    "Id": 2,
+    "UserName": "Boardssd",
+    "FullName": "Boards Jrdsa",
+    "Email": "Boards@Jrds",
+    "Password": "Boards1234sdf",
+    "PhoneNumber": "1234dsf",
+	"Gender": "Male",
+	"SubscriptionDate":"1956-07-22",
+	"UserTypeId": 1,
+	"IsActive": true,
+	"DateBirth": "1956-07-22",
+	"ProvinceId": 1,
+	"FullAddress": "Unknown",
+	"IsDelete": false
+  }
+]
