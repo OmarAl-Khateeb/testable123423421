@@ -1,6 +1,6 @@
 using System.Text;
 using Core.Entities.Identity;
-using Infrastructure.Data.Identity;
+using Infrastructure.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -15,7 +15,7 @@ namespace API.Extensions
         {
             services.AddDbContext<AppIdentityDbContext>(opt =>
             {
-                opt.UseNpgsql(config.GetConnectionString("IdentityConnection"));
+                opt.UseSqlite(config.GetConnectionString("IdentityConnection"));
             });
 
             services.AddIdentityCore<AppUser>(opt => 

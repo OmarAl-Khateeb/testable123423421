@@ -2,6 +2,7 @@ using API.Errors;
 using Core.Interfaces;
 using Infrastructue.Data;
 using Infrastructure.Data;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,6 +20,7 @@ namespace API.Extensions
             {
                 opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
             });
+            services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
@@ -41,6 +43,15 @@ namespace API.Extensions
                     return new BadRequestObjectResult(errorResponse);
                 };
             });
+
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("CorsPolicy", policy => 
+                {
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
+                });
+            });
+
 
             return services;
         }

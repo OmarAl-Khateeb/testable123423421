@@ -1,6 +1,7 @@
 using API.Dtos;
 using AutoMapper;
 using Core.Entities;
+using Core.Entities.Identity;
 
 namespace API.Helpers
 {
@@ -12,6 +13,7 @@ namespace API.Helpers
                 .ForMember(d => d.ProductBrand, o => o.MapFrom(s => s.ProductBrand.Name))
                 .ForMember(d => d.ProductType, o => o.MapFrom(s => s.ProductType.Name))
                 .ForMember(d => d.PictureUrl, o => o.MapFrom<ProductUrlResolver>());
+            CreateMap<Address, AddressDto>().ReverseMap();
             
             CreateMap<User, UserToReturnDto>()
                 .ForMember(d => d.UserType, o => o.MapFrom(s => s.UserType.Name))
@@ -21,17 +23,10 @@ namespace API.Helpers
             CreateMap<Branch, BranchToReturnDto>()
                 .ForMember(d => d.Province, o => o.MapFrom(s => s.Province.Name));
             CreateMap<BranchUpdateDto, Branch>();
-            CreateMap<Slider, SliderDto>();
-            CreateMap<SliderDto, Slider>();
-            CreateMap<Project, ProjectDto>();
-            CreateMap<ProjectDto, Project>();
-            CreateMap<CommonQuestion, CommonQuestionDto>();
-            CreateMap<CommonQuestionDto, CommonQuestion>();
-<<<<<<< HEAD
-=======
-            CreateMap<NewsDto, News>();
-            CreateMap<News, NewsDto>();
->>>>>>> 53da8f9 (test)
+            CreateMap<Slider, SliderDto>().ReverseMap();
+            CreateMap<Project, ProjectDto>().ReverseMap();
+            CreateMap<CommonQuestion, CommonQuestionDto>().ReverseMap();
+            CreateMap<NewsDto, News>().ReverseMap();
                 
         }
     }
